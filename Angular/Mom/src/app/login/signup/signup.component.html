@@ -1,0 +1,130 @@
+<div class="main">
+  <div class="container-fluid">
+    <div class="row align-items-center">
+      <div class="col-md-12">
+        <mat-card class="mcard">
+            <h3 class="size-100p heading">Signup</h3>
+                  <mat-card-subtitle style="color:red">{{message}}</mat-card-subtitle>
+                  <mat-card-content>
+                    <form [formGroup]="signupForm" (ngsubmit)="submit()">
+                      <mat-vertical-stepper formArrayName="formArray" class="mb-3 size-100p" [linear]=true #stepper>
+                        <ng-template matStepperIcon="edit">
+                          <mat-icon>done</mat-icon>
+                        </ng-template>
+                          <mat-step [formGroupName]="0" [stepControl]="formArray?.get([0])">
+                              <ng-template matStepLabel>Fill out your Phone Number</ng-template>
+                                <mat-form-field class="size-100p">
+                                    <mat-label>Phone</mat-label>
+                                    <mat-icon matPrefix>phone</mat-icon>
+                                    <span matPrefix>+91 &nbsp;</span>
+                                    <input type="tel" matInput placeholder="9876543210" formControlName="phone">
+                                    <mat-error *ngIf="formArray?.get([0])['controls']['phone'].hasError('pattern')">
+                                        Format <strong>error</strong>
+                                    </mat-error>
+                                    <mat-error *ngIf="formArray?.get([0])['controls']['phone'].hasError('required')">
+                                        Phone is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                                <div>
+                                    <button mat-button matStepperNext>Next</button>
+                                </div>
+                          </mat-step>
+                          <mat-step [formGroupName]="1" [stepControl]="formArray?.get([1])">
+                              <ng-template matStepLabel>Fill out your Password</ng-template>
+                              <mat-form-field class="size-100p">
+                                <mat-label>Password</mat-label>
+                                <input [type]="hide ? 'password' : 'text'" matInput formControlName="password">
+                                <mat-icon matPrefix>vpn_key</mat-icon>
+                                <mat-icon matSuffix (click)="hide = !hide" class="pointer">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                <mat-error *ngIf="formArray?.get([1])['controls']['password'].hasError('pattern')">
+                                    Password should contain minimum 1 Uppercase letter, 1 lowercase letter, 1 Number and should have minimum of 8 characters
+                                </mat-error>
+                                <mat-error *ngIf="formArray?.get([1])['controls']['password'].hasError('required')">
+                                    Password is <strong>required</strong>
+                                </mat-error>
+                              </mat-form-field>
+                              <div>
+                                <button mat-button matStepperPrevious>Back</button>
+                                <button mat-button matStepperNext>Next</button>
+                              </div>
+                          </mat-step>
+                          <mat-step [formGroupName]="2" [stepControl]="formArray?.get([2])">
+                            <ng-template matStepLabel>Fill out your First Name</ng-template>
+                            <mat-form-field class="size-100p">
+                              <mat-label>First Name</mat-label>
+                              <input type='text' matInput formControlName="fname">
+                              <mat-icon matPrefix>vpn_key</mat-icon>
+                              <mat-error *ngIf="formArray?.get([2])['controls']['fname'].hasError('required')">
+                                  First Name is <strong>required</strong>
+                              </mat-error>
+                            </mat-form-field>
+                            <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button matStepperNext>Next</button>
+                            </div>
+                          </mat-step>
+                          <mat-step [formGroupName]="3" [stepControl]="formArray?.get([3])">
+                            <ng-template matStepLabel>Fill out your Last Name</ng-template>
+                            <mat-form-field class="size-100p">
+                              <mat-label>Last Name</mat-label>
+                              <input type='text' matInput formControlName="lname">
+                              <mat-icon matPrefix>vpn_key</mat-icon>
+                              <mat-error *ngIf="formArray?.get([3])['controls']['lname'].hasError('required')">
+                                  Last Name is <strong>required</strong>
+                              </mat-error>
+                            </mat-form-field>
+                            <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button matStepperNext>Next</button>
+                            </div>
+                          </mat-step>
+                          <mat-step [formGroupName]="4" [stepControl]="formArray?.get([4])">
+                            <ng-template matStepLabel class="mat-vertical-stepper-header-local">Fill out your Email Id</ng-template>
+                            <mat-form-field class="size-100p">
+                              <mat-label>Email</mat-label>
+                              <input type='email' matInput formControlName="email">
+                              <mat-icon matPrefix>vpn_key</mat-icon>
+                              <mat-error *ngIf="formArray?.get([4])['controls']['email'].hasError('required')">
+                                  Email is <strong>required</strong>
+                              </mat-error>
+                              <mat-error *ngIf="formArray?.get([4])['controls']['email'].hasError('email')">
+                                  Format <strong>Error</strong>
+                              </mat-error>
+                            </mat-form-field>
+                            <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button matStepperNext>Next</button>
+                            </div>
+                          </mat-step>
+                          <mat-step [formGroupName]="5" [stepControl]="formArray?.get([5])">
+                            <ng-template matStepLabel>Fill out your Age</ng-template>
+                            <mat-form-field class="size-100p">
+                              <mat-label>Age</mat-label>
+                              <input type=number matInput formControlName="age">
+                              <mat-icon matPrefix>vpn_key</mat-icon>
+                                <mat-error *ngIf="formArray?.get([5])['controls']['age'].hasError('required')">
+                                    Age is <strong>required</strong>
+                                </mat-error>
+                            </mat-form-field>
+                            <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button matStepperNext>Next</button>
+                            </div>
+                          </mat-step>
+                          <mat-step>
+                            <ng-template matStepLabel>Done</ng-template>
+                            <p>You are now done.</p>
+                            <div>
+                              <button mat-button matStepperPrevious>Back</button>
+                              <button mat-button (click)="stepper.reset()">Reset</button>
+                              <button mat-button (click)="submit()" type="submit">Signup</button>
+                            </div>
+                          </mat-step>
+                        </mat-vertical-stepper>
+                      </form>
+                  </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</div>

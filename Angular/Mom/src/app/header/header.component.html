@@ -1,0 +1,30 @@
+<!-- <li class="nav-item" *ngIf="authserv.admin">
+  <a class="nav-link" routerLink="admin" routerLinkActive="active">Admin</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" routerLink="login" routerLinkActive="active">Privacy Policy</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" routerLink="cart" routerLinkActive="active">Terms and Conditions</a>
+</li> -->
+
+<mat-toolbar color='primary' class="toolbar">
+  <!-- <mat-icon (click)="hide = !hide; hide ? sidenav.close() : sidenav.open();" class="pointer">{{hide ? 'menus' : 'clear'}}</mat-icon> -->
+  <button mat-button routerLink="" matTooltip="Home" class="pointer"><h4>Mom's Magic</h4></button>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+  <span><button type="button" *ngIf="admin" routerLink="admin" matTooltip="Admin"  mat-button><mat-icon>supervisor_account</mat-icon></button></span>
+  <span><button type="button" routerLink="cart" matTooltip="Cart"  mat-button><mat-icon>shopping_cart</mat-icon></button></span>
+  <span *ngIf="!loggedIn"><button type="button" routerLink="login" matTooltip="Login" mat-button><mat-icon style="transform: rotate(180deg);">exit_to_app</mat-icon></button></span>
+  <span *ngIf="loggedIn"><button type="button" (click)='logout()' matTooltip="Logout" mat-button><mat-icon>exit_to_app</mat-icon></button></span>
+</mat-toolbar>
+
+<!-- <mat-sidenav-container
+    class="example-container" (backdropClick)="sidenav.close();hide = !hide">
+  <mat-sidenav mode="side" #sidenav (keydown.escape)="close('escape')">
+    <p><button mat-button (click)="close('toggle button')">Toggle</button></p>
+  </mat-sidenav>
+  <mat-sidenav-content><router-outlet></router-outlet></mat-sidenav-content>
+</mat-sidenav-container> -->
+

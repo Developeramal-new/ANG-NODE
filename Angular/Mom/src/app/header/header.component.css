@@ -1,0 +1,29 @@
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox.
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
+}
+.toolbar{
+  height: 6%;
+  background: transparent;
+}
+.pointer{
+  cursor: pointer;
+}
+
+.example-container {
+  top:6%;
+  width: 100%;
+  height: 94%;
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
+}

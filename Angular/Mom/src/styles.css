@@ -1,0 +1,27 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.685), rgba(0, 0, 0, 0.781)),url('./assets/login_background_2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button:focus{
+  outline:none;
+}
+.mat-stepper-vertical .mat-vertical-stepper-header {
+  padding: 10px;
+  padding-bottom: 0px !important;
+}
+.mat-vertical-content {
+  padding-bottom: 0px !important;
+}
+
+@media only screen and (min-height: 700px) {
+  .mat-stepper-vertical .mat-vertical-stepper-header {
+    padding: 24px;
+  }
+  .mat-vertical-content {
+    padding-bottom: 24px !important;
+  }
+}
